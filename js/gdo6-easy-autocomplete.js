@@ -8,14 +8,29 @@ $(function(){
 				return config.completionHref + '&fmt=json&query=' + query;
 			},
 			getValue: 'text',
-		    maxNumberOfElements: 10,
 		    template: {
 		        type: "custom",
 		        method: function(value, item) {
 		        	return item.display;
 		        }
-		      },
+		    },
+		    list: {
+		    	onChooseEvent: function() {
+		            var selectedItemValue = $this.getSelectedItemData().id;
+		            $('#completion-'+config.name).val(selectedItemValue);
+		        },
+		    }
 		};
 		$this.easyAutocomplete(options);
+	});
+
+	$('.gdo-autocomplete-enum').each(function(){
+		var $this = $(this);
+		var config  = JSON.parse($this.attr('data-config'));
+		console.log(config);
+		var options = {
+			
+		};
+		
 	});
 });
