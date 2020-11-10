@@ -1,13 +1,17 @@
 "use strict"
 $(function(){
-	$('.gdo-autocomplete').each(function(){
+	$('.gdo-autocomplete-input').each(function(){
 		var $this = $(this);
-		var config  = JSON.parse($this.attr('data-config'));
-		console.log(config);
-		var $hidden = $('#completion-'+config.name);
+		var config  = $this.attr('data-config');
+		config = JSON.parse(config);
+		var hiddenID = 'completion-'+config.name;
+		var $hidden = $('#'+hiddenID);
+		// if this input has a name, we need to switch names with the hidden input that holds the selected ID.
 		var name = $this.attr('name');
-		$this.attr('name', '');
-		$hidden.attr('name', name);
+		if (name) { 
+			$this.attr('name', '');
+			$hidden.attr('name', name);
+		}
 		$this.attr('placeholder', config.emptyLabel);
 		$hidden.val(config.selected.id);
 		if (config.selected) {
@@ -38,10 +42,30 @@ $(function(){
 				onChooseEvent: function() {
 		            var selectedItemValue = $this.getSelectedItemData().id;
 		            $hidden.val(selectedItemValue);
-		        },
+		            $this.focus();
+		        }
 		    }
 		};
+	
+		/**
+		 * On enter, check if the list is closed. if it is closed, submit the form.
+		 */
+		$this.keydown(function(event) {
+			if (event.keyCode === 13) {
+				var $eaccul = $('#eac-container-'+config.id+' ul');
+				console.log($eaccul);
+				if ($eaccul.css('display') === 'none') {
+					console.log('YES');
+	        		$this.closest('form').find('input[type=submit]:first').click();
+				}
+				else {
+					event.preventDefault();
+				}
+			}
+		});
+		
 		$this.easyAutocomplete(options);
+		
+		$this.parent().css('width', 'auto'); // fix bad width patch from lib.
 	});
-
 });
