@@ -30,6 +30,8 @@ $(function(){
 				return config.completionHref + '&fmt=json&query=' + query;
 			},
 			getValue: 'text',
+			requestDelay: 700,
+			placeholder: $(this).attr('placeholder'),
 		    template: {
 		        type: "custom",
 		        method: function(value, item) {
@@ -43,7 +45,7 @@ $(function(){
 		            var selectedItemValue = $this.getSelectedItemData().id;
 		            $hidden.val(selectedItemValue);
 		            $this.focus();
-		        }
+		        },
 		    }
 		};
 	
@@ -53,14 +55,18 @@ $(function(){
 		$this.keydown(function(event) {
 			if (event.keyCode === 13) {
 				var $eaccul = $('#eac-container-'+config.id+' ul');
-				console.log($eaccul);
 				if ($eaccul.css('display') === 'none') {
-					console.log('YES');
 	        		$this.closest('form').find('input[type=submit]:first').click();
 				}
 				else {
 					event.preventDefault();
 				}
+			}
+			
+			if (config.combobox) {
+				setTimeout(function(){
+					$hidden.val($this.val());
+				});
 			}
 		});
 		
