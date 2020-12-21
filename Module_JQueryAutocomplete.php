@@ -17,6 +17,8 @@ final class Module_JQueryAutocomplete extends GDO_Module
     
     public function getDependencies() { return ['JQuery']; }
     
+    public function thirdPartyFolders() { return ['/EasyAutocomplete/']; }
+    
     public function onIncludeScripts()
     {
         $min = Module_Core::instance()->cfgMinifyJS() === 'no' ? '' : '.min';
