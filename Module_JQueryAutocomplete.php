@@ -2,6 +2,7 @@
 namespace GDO\JQueryAutocomplete;
 
 use GDO\Core\GDO_Module;
+use GDO\Core\GDT_Array;
 use GDO\Core\Module_Core;
 
 /**
@@ -29,4 +30,9 @@ final class Module_JQueryAutocomplete extends GDO_Module
         $this->addJavascript("js/gdo6-easy-autocomplete.js");
     }
     
+    public function hookIgnoreDocsFiles(GDT_Array $ignore)
+    {
+        $ignore->data[] = 'GDO/JQueryAutocomplete/EasyAutocomplete/**/*';
+    }
+
 }
