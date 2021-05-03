@@ -4,6 +4,7 @@ namespace GDO\JQueryAutocomplete;
 use GDO\Core\GDO_Module;
 use GDO\Core\GDT_Array;
 use GDO\Core\Module_Core;
+use GDO\Javascript\Module_Javascript;
 
 /**
  * EasyAutocomplete wrapper module.
@@ -22,7 +23,7 @@ final class Module_JQueryAutocomplete extends GDO_Module
     
     public function onIncludeScripts()
     {
-        $min = Module_Core::instance()->cfgMinifyJS() === 'no' ? '' : '.min';
+        $min = Module_Javascript::instance()->jsMinAppend();
 
         $this->addCSS("EasyAutocomplete/dist/easy-autocomplete{$min}.css");
         $this->addCSS("EasyAutocomplete/dist/easy-autocomplete.themes{$min}.css");
