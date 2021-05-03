@@ -75,5 +75,5 @@ $('.gdo-autocomplete-input').each(function(){
 	
 	$this.easyAutocomplete(options);
 	
-	$this.parent().css('width', 'auto'); // fix bad width patch from lib.
+	$this.parent().css('width', '100%'); // fix bad width patch from lib.
 });
