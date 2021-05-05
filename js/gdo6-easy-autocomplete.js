@@ -32,6 +32,9 @@ $('.gdo-autocomplete-input').each(function(){
 		url: function (query) {
 			return config.completionHref + '&fmt=json&query=' + query;
 		},
+		listLocation: function (data) {
+			return data.json.data;
+		},
 		getValue: 'text',
 		requestDelay: 700,
 		placeholder: $(this).attr('placeholder'),
@@ -41,7 +44,7 @@ $('.gdo-autocomplete-input').each(function(){
 	        	return item.display;
 	        }
 	    },
-//		    theme: 'round',
+//		theme: 'round',
 	    list: {
 			maxNumberOfElements: 20,
 			onChooseEvent: function() {

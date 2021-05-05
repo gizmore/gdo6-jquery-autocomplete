@@ -3,15 +3,16 @@ namespace GDO\JQueryAutocomplete;
 
 use GDO\Core\GDO_Module;
 use GDO\Core\GDT_Array;
-use GDO\Core\Module_Core;
 use GDO\Javascript\Module_Javascript;
 
 /**
  * EasyAutocomplete wrapper module.
  * 
+ * @link https://github.com/pawelczak/EasyAutocomplete
+ * 
  * @author gizmore
- * @version 6.10
- * @since 6.10
+ * @version 6.10.1
+ * @since 6.10.0
  */
 final class Module_JQueryAutocomplete extends GDO_Module
 {
