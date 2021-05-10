@@ -33,7 +33,7 @@ $('.gdo-autocomplete-input').each(function(){
 			return config.completionHref + '&fmt=json&query=' + query;
 		},
 		listLocation: function (data) {
-			return data.json.data;
+			return data.json;
 		},
 		getValue: 'text',
 		requestDelay: 700,
