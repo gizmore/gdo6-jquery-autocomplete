@@ -36,7 +36,7 @@ $('.gdo-autocomplete-input').each(function(){
 			return data.json;
 		},
 		getValue: 'text',
-		requestDelay: 700,
+		requestDelay: 500,
 		placeholder: $(this).attr('placeholder'),
 	    template: {
 	        type: "custom",
@@ -49,6 +49,7 @@ $('.gdo-autocomplete-input').each(function(){
 			maxNumberOfElements: 20,
 			onChooseEvent: function() {
 	            var selectedItemValue = $this.getSelectedItemData().id;
+	            $('#nocompletion_' + config.name).val(0);
 	            $hidden.val(selectedItemValue);
 	            $this.focus();
 	        },
@@ -69,11 +70,12 @@ $('.gdo-autocomplete-input').each(function(){
 			}
 		}
 		
-		if (config.combobox) {
+//		if (config.combobox) {
 			setTimeout(function(){
-				$hidden.val($this.val());
+	            $('#nocompletion_' + config.name).val(1);
+	            $hidden.val($this.val());
 			});
-		}
+//		}
 	});
 	
 	$this.easyAutocomplete(options);
