@@ -30,7 +30,7 @@ $('.gdo-autocomplete-input').each(function(){
 	}
 	var options = {
 		url: function (query) {
-			return config.completionHref + '&fmt=json&query=' + query;
+			return config.completionHref + '&_fmt=json&query=' + query;
 		},
 		listLocation: function (data) {
 			return data.json;
