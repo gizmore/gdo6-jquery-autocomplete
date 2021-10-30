@@ -5,7 +5,7 @@
  */
 $('.gdo-autocomplete-input').each(function(){
 	var $this = $(this);
-	var config  = $this.attr('data-config');
+	var config  = $this.parent().attr('data-gdt-config');
 	config = JSON.parse(config);
 	var hiddenID = 'completion-'+config.name;
 	var $hidden = $('#'+hiddenID);
@@ -33,7 +33,8 @@ $('.gdo-autocomplete-input').each(function(){
 			return config.completionHref + '&_fmt=json&query=' + query;
 		},
 		listLocation: function (data) {
-			return data.json;
+			console.log(data);
+			return data.json.data;
 		},
 		getValue: 'text',
 		requestDelay: 500,
