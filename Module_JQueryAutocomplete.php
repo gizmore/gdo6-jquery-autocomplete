@@ -28,8 +28,8 @@ final class Module_JQueryAutocomplete extends GDO_Module
 
         $this->addCSS("EasyAutocomplete/dist/easy-autocomplete{$min}.css");
         $this->addCSS("EasyAutocomplete/dist/easy-autocomplete.themes{$min}.css");
-        $this->addJavascript("EasyAutocomplete/dist/jquery.easy-autocomplete{$min}.js");
-        $this->addJavascript("js/gdo6-easy-autocomplete.js");
+        $this->addJS("EasyAutocomplete/dist/jquery.easy-autocomplete{$min}.js");
+        $this->addJS("js/gdo6-easy-autocomplete.js");
     }
     
     public function hookIgnoreDocsFiles(GDT_Array $ignore)
