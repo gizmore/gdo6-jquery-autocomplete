@@ -24,7 +24,7 @@ final class Module_JQueryAutocomplete extends GDO_Module
     
     public function onIncludeScripts()
     {
-        $min = Module_Javascript::instance()->jsMinAppend();
+        $min = Module_Javascript::instance()->cfgMinAppend();
 
         $this->addCSS("EasyAutocomplete/dist/easy-autocomplete{$min}.css");
         $this->addCSS("EasyAutocomplete/dist/easy-autocomplete.themes{$min}.css");
