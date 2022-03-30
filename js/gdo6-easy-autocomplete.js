@@ -7,12 +7,12 @@ $('.gdo-autocomplete-input').each(function(){
 	var $this = $(this);
 	var config  = $this.parent().attr('data-gdt-config');
 	config = JSON.parse(config);
-	var hiddenID = 'completion-'+config.name;
+	var hiddenID = 'gdo-autocomplete-id-'+config.name;
 	var $hidden = $('#'+hiddenID);
 	// if this input has a name, we need to switch names with the hidden input that holds the selected ID.
 	var name = $this.attr('name');
 	if (name) { 
-		$this.attr('name', '');
+		$this.removeAttr('name');
 		$hidden.attr('name', name);
 	}
 	$this.attr('placeholder', config.emptyLabel);
